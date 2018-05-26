@@ -4,15 +4,20 @@ class PostsController < ApplicationController
   end
 
   def new
-
+    @post = Post.new
   end
 
   def create
-
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to @post
+    else
+      render 'new'
+    end
   end
 
   def show
-
+    @post = Post.find(params[:id])
   end
 
   def destroy
@@ -21,7 +26,7 @@ class PostsController < ApplicationController
 
   private
 
-  def posts_params
-
+  def post_params
+    params.require(:post).permit(:title, :body)
   end
 end
