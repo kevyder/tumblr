@@ -1,0 +1,9 @@
+<div class="comment clearfix">
+  <div class="comment_comment">
+    <p class="comment_name">
+      <b><em><%= comment.name %></em></b>
+    </p>
+    <p class="comment_body"><%= comment.body %></p>
+    <p class="comment_title"><%= time_ago_in_words(comment.created_at) %></p>
+  </div>
+</div>
